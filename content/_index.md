@@ -39,7 +39,7 @@ sections:
   - block: about.biography
     id: about
     content:
-      title: Biography
+      title:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
   - block: skills
@@ -260,7 +260,7 @@ sections:
       title: Contact
       subtitle:
       text: |-
-        Feel free to reach out to me for any inquiries or collaborations. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+        Feel free to reach out to me for any inquiries or collaborations. I'm always open to discussing new projects, creative ideas, or any opportunities.
       # Contact (add or remove contact options as necessary)
       email: dawit[dot]k[dot]redie@ntnu.no
       phone:
