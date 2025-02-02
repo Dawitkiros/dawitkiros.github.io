@@ -65,7 +65,7 @@ sections:
         - title: Researcher and teaching assistant
           company: NTNU
           company_url: "https://www.ntnu.no/"
-          company_logo: "uploads/ntnu.png"
+          company_logo: ntnu
           location: Trondehim, Norway
           date_start: "2023-12-01"
           date_end: ""
@@ -79,7 +79,7 @@ sections:
         - title: Software Engineering Intern
           company: Johnson Controls
           company_url: "https://www.johnsoncontrols.com/"
-          company_logo: "uploads/jci.png"
+          company_logo: jci
           location: Pune, India
           date_start: "2023-01-01"
           date_end: "2023-09-01"
@@ -93,7 +93,7 @@ sections:
         - title: Teaching Assistant in Data Structures
           company: KIIT University
           company_url: "https://kiit.ac.in/"
-          company_logo: "uploads/KIIT-logo.png"
+          company_logo: kiit
           location: Bhubaneswar, India
           date_start: "2022-09-01"
           date_end: "2023-01-01"
@@ -102,7 +102,7 @@ sections:
         - title: Research Intern in AI Applications
           company: KIIT University
           company_url: "https://kiit.ac.in/"
-          company_logo: "uploads/KIIT-logo.png"
+          company_logo: kiit
           location: Bhubaneswar, India
           date_start: "2020-07-01"
           date_end: "2020-09-01"
