@@ -263,7 +263,7 @@ sections:
       # Contact (add or remove contact options as necessary)
       email: dawit[dot]k[dot]redie@ntnu.no
       phone:
-      appointment_url: "https://calendly.com"
+      appointment_url:
       address:
         street: C342, Elektro C Gløshaugen
         city: Trondheim
