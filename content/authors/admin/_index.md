@@ -52,36 +52,36 @@ skills:
   - name: Technical
     items:
       - name: Python
-        description: ''
+        description: ""
         percent: 80
         icon: python
         icon_pack: fab
       - name: Data Science
-        description: ''
+        description: ""
         percent: 100
         icon: chart-line
         icon_pack: fas
       - name: SQL
-        description: ''
+        description: ""
         percent: 40
         icon: database
         icon_pack: fas
   - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
+    color: "#eeac02"
+    color_border: "#f0bf23"
     items:
       - name: Hiking
-        description: ''
+        description: ""
         percent: 60
         icon: person-hiking
         icon_pack: fas
       - name: Cats
-        description: ''
+        description: ""
         percent: 100
         icon: cat
         icon_pack: fas
       - name: Photography
-        description: ''
+        description: ""
         percent: 80
         icon: camera-retro
         icon_pack: fas
@@ -93,7 +93,7 @@ skills:
 social:
   - icon: envelope
     icon_pack: fas
-    link: '/#contact'
+    link: "/#contact"
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/dawit_kiros_
@@ -120,5 +120,5 @@ social:
 highlight_name: true
 ---
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am currently a PhD researcher at Signal processing group at [NTNU](https://www.ntnu.no/), where I focus on pushing the boundaries of federated learning (FL) through privacy-preserving machine learning and distributed optimization. My current work explores innovative strategies for enhancing privacy in FL, making it feasible for low-resource devices, and addressing challenges posed by data heterogeneity. I am always open to new collaborations—feel free to reach out if our research interests align!
 {style="text-align: justify;"}
