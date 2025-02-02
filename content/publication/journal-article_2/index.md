@@ -2,15 +2,15 @@
 title: "Oral cancer detection using transfer learning-based framework from histopathology images"
 authors:
   - Dawit Kiros Redie
-  - Saurabh Bilgaiyan, and
-  - Santwana Sagnika.
+  - Saurabh Bilgaiyan
+  - Santwana Sagnika
 
 date: "2023-09-01T00:00:00Z"
 doi: "https://doi.org/10.1117/1.JEI.32.5.053004"
 
 # Schedule page publish date (NOT publication's date).
 
-publishDate: "2023-09-01T00:00:00Z"
+publishDate: "2025-02-01T00:00:00Z"
 
 # Publication type.
 
