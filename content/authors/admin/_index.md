@@ -56,9 +56,14 @@ skills:
         percent: 80
         icon: python
         icon_pack: fab
+      - name: Java
+        description: ""
+        percent: 50
+        icon: java
+        icon_pack: fab
       - name: Data Science
         description: ""
-        percent: 100
+        percent: 80
         icon: chart-line
         icon_pack: fas
       - name: SQL
@@ -75,15 +80,20 @@ skills:
         percent: 60
         icon: person-hiking
         icon_pack: fas
-      - name: Cats
-        description: ""
-        percent: 100
-        icon: cat
-        icon_pack: fas
-      - name: Photography
+      - name: Football
         description: ""
         percent: 80
-        icon: camera-retro
+        icon: football
+        icon_pack: fas
+      - name: Reading
+        description: ""
+        percent: 80
+        icon: book
+        icon_pack: fas
+      - name: Gym
+        description: ""
+        percent: 80
+        icon: gym
         icon_pack: fas
 
 # Social/Academic Networking
