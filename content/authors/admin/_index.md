@@ -83,7 +83,7 @@ skills:
       - name: Football
         description: ""
         percent: 80
-        icon: football
+        icon: soccer
         icon_pack: fas
       - name: Reading
         description: ""
@@ -93,7 +93,7 @@ skills:
       - name: Gym
         description: ""
         percent: 80
-        icon: gym
+        icon: fitness
         icon_pack: fas
 
 # Social/Academic Networking
