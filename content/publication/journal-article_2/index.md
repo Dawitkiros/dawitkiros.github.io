@@ -25,7 +25,7 @@ publication_types: ["article-journal"]
 publication: "_Journal of Electronic Imaging_"
 publication_short: ""
 
-abstract: ""
+abstract: "Oral cancer is a serious worldwide health problem. It might be seen in the face, oral glands, neck, or mouth of the patient. Cancer detection utilizing histopathology images aids in easing and forecasting abnormality. Furthermore, it delivers better outcomes if biological procedures are implemented appropriately, however, there are large opportunities for human errors and blunders during physical examinations. The advancement of deep learning techniques may open the door to a better detection of oral cancer from histopathology images, which will be advantageous to lab staff and medical professionals. Our study presents an in-depth analysis of 10 pre-trained deep convolutional neural network models using transfer learning approach for the detection of oral cancer. The experiment was performed for two classes, i.e., normal and oral squamous cell carcinoma. The results show that the VGG19 model with data augmentation was able to attain the highest classification accuracy of 96.26% using the transfer learning technique. We have also introduced an approach by integrating the VGG19 pre-trained model with a custom naïve inception block. This fusion of two well-known models harnesses their complementary strengths and results in a more robust architecture. The incorporation of the inception block addresses limitations observed in the VGG19 framework, such as vanishing gradient issues and excessive computational requirements. The proposed model for detection of oral cancer has undergone a thorough block-wise fine tuning. Our results demonstrate the superior performance of our deep learning architecture compared to existing literature, highlighting its potential to enhance the detection and diagnosis of oral cancer."
 
 tags:
   - Deep Learning
@@ -47,17 +47,17 @@ url_source: ""
 url_video: ""
 
 image:
-  caption: "Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)"
+  caption: ""
   focal_point: ""
   preview_only: false
 ---
 
 {{% callout note %}}
-Click the _Cite_ button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+Click the _Cite_ button above to import publication metadata into your reference management software.
 {{% /callout %}}
 
-{{% callout note %}}
+<!-- {{% callout note %}}
 Create your slides in Markdown - click the _Slides_ button to check out the example.
-{{% /callout %}}
+{{% /callout %}} -->
 
-Add the publication's **full text** or **supplementary notes** here. You can use rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/).
+<!-- Add the publication's **full text** or **supplementary notes** here. You can use rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/). -->
