@@ -1,9 +1,9 @@
 ---
 # Display name
-title: Mr.
+title: Dawit Kiros Redie
 
 # Name pronunciation (optional)
-name_pronunciation: Dawit
+name_pronunciation:
 
 # Full name (for SEO)
 first_name: Dawit Kiros
@@ -25,26 +25,26 @@ organizations:
     url: https://www.ntnu.no/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: Pushing myself to dive deeper into machine learning research to keep up with the evolving demands of the field.
 
 # Interests to show in About widget
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Federated Learning
+  - Privacy-preserving and efficient Machine Learning
+  - Distributed optimization
 
 # Education to show in About widget
 education:
   courses:
     - course: PhD in Electronics and Telecommunications
-      institution: NTNU
-      year: 2023-2027
+      institution: Norwegian University of Science and Technology (NTNU)
+      year: 2023 - 2027
     - course: MTech in Computer Science Engineering Specialization in Software engineering
-      institution: Massachusetts Institute of Technology
-      year: 2023
+      institution: Kalinga Institute of Industrial Technology (KIIT)
+      year: 2021 - 2023
     - course: BTech in Electronics and Computer Science Engineering
-      institution: Massachusetts Institute of Technology
-      year: 2021
+      institution: Kalinga Institute of Industrial Technology (KIIT)
+      year: 2017 - 2021
 
 # Skills
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -94,15 +94,15 @@ social:
   - icon: envelope
     icon_pack: fas
     link: "/#contact"
+  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
+    icon_pack: fas
+    link: https://scholar.google.com/citations?user=6JvO3kgAAAAJ&hl=en
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/dawit_kiros_
     label: Follow me on Twitter
     display:
       header: true
-  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
-    icon_pack: fas
-    link: https://scholar.google.com/citations?user=6JvO3kgAAAAJ&hl=en
   - icon: github
     icon_pack: fab
     link: https://github.com/dawitkiros
@@ -114,7 +114,7 @@ social:
   # and uncomment the lines below.
   - icon: cv
     icon_pack: ai
-    link: uploads/resume.pdf
+    link: uploads/Dawit_Kiros_Redie_resume.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
