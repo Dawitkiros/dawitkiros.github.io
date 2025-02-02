@@ -26,7 +26,7 @@ publication_short: ""
 abstract: This study presents a CNN-based model using chest X-ray images for accurate COVID-19 detection. The model achieved 99.53% accuracy for binary classification and 94.18% for multi-class classification.
 
 tags:
-  - Source Themes
+  - Convolutional Neural Networks
 featured: false
 
 # links:
@@ -61,20 +61,16 @@ projects: []
 #   Otherwise, set `slides: ""`.
 # slides: example
 
-title: "Diagnosis "
+title: "Oral cancer detection using transfer learning-based framework from histopathology images"
 authors:
   - Dawit Kiros Redie
-  - Abdulhakim Edao Sirko
-  - Tensaie Melkamu Demissie
-  - Semagn Sisay Teferi
-  - Vimal Kumar Shrivastava
-  - Om Prakash Verma
-  - Tarun Kumar Sharma
-date: "2022-09-01T00:00:00Z"
-doi: "https://doi.org/10.1007/s12065-021-00679-7"
+  - Saurabh Bilgaiyan, and 
+  - Santwana Sagnika. 
+date: "2023-09-01T00:00:00Z"
+doi: "https://doi.org/10.1117/1.JEI.32.5.053004"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2022-09-01T00:00:00Z"
+publishDate: "2023-09-01T00:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -82,19 +78,19 @@ publishDate: "2022-09-01T00:00:00Z"
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Evolutionary Intelligence*"
+publication: "*Journal of Electronic Imaging*"
 publication_short: ""
 
-abstract: This study presents a CNN-based model using chest X-ray images for accurate COVID-19 detection. The model achieved 99.53% accuracy for binary classification and 94.18% for multi-class classification.
+abstract: ""
 
 tags:
-  - Source Themes
+  - Deep Learning
 featured: false
 
 # links:
 # - name: ""
 #   url: ""
-url_pdf: https://link.springer.com/article/10.1007/s12065-021-00679-7
+url_pdf: "/publication/journal-article/paper_2.pdf"
 url_code: ""
 url_dataset: ""
 url_poster: ""
