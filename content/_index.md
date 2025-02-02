@@ -62,7 +62,7 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-      - title: Researcher and teaching assistant
+        - title: Researcher and teaching assistant
           company: NTNU
           company_url: "https://www.ntnu.no/"
           company_logo: uploads/ntnu.png
@@ -262,7 +262,7 @@ sections:
         Feel free to reach out to me for any inquiries or collaborations. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
       # Contact (add or remove contact options as necessary)
       email: dawit[dot]k[dot]redie@ntnu.no
-      phone: 
+      phone:
       appointment_url: "https://calendly.com"
       address:
         street: C342, Elektro C Gløshaugen
