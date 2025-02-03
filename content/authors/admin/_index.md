@@ -93,7 +93,7 @@ skills:
       - name: Gym
         description: ""
         percent: 80
-        icon: fitness
+        icon: gym
         icon_pack: fas
 
 # Social/Academic Networking
