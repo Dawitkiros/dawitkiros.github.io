@@ -130,5 +130,5 @@ social:
 highlight_name: true
 ---
 
-I am currently a PhD researcher at Signal processing group at [NTNU](https://www.ntnu.no/), where I focus on pushing the boundaries of federated learning (FL) through privacy-preserving machine learning and distributed optimization. My current work explores innovative strategies for enhancing privacy in FL, making it feasible for low-resource devices, and addressing challenges posed by data heterogeneity. I am always open to new collaborations—feel free to reach out if our research interests align!
+I am currently a PhD researcher at Signal processing group at [NTNU](https://www.ntnu.no/), being advised by professor [Stefan Werner](https://www.ntnu.edu/employees/stefan.werner), where I focus on pushing the boundaries of federated learning (FL) through privacy-preserving machine learning and distributed optimization. My current work explores innovative strategies for enhancing privacy in FL, making it feasible for low-resource devices, and addressing challenges posed by data heterogeneity. I am always open to new collaborations—feel free to reach out if our research interests align!
 {style="text-align: justify;"}
