@@ -18,16 +18,16 @@ marketing:
     site_type: Person
     local_business_type: ""
     org_name: "Dawit Kiros"
-    description: "The professional website of Dawit Kiros, showcasing skills, projects, and achievements."
+    description: "The professional website of Dawit Kiros, showcasing research, projects, and expertise in Federated Learning, NLP, and Optimization."
     twitter: "GetResearchDev"
     analytics:
-    google_analytics: ""
-    baidu_tongji: ""
-    google_tag_manager: ""
-    microsoft_clarity: ""
+      google_analytics: ""
+      baidu_tongji: ""
+      google_tag_manager: ""
+      microsoft_clarity: ""
     verification:
-    google: ""
-    baidu: ""
+      google: ""
+      baidu: ""
 
 # Site header
 
@@ -70,7 +70,7 @@ features:
   privacy_pack:
     enable: false
   repository:
-    url: "https://github.com/<username>/<repository>"
+    url: "https://github.com/Dawitkiros/dawitkiros.github.io"
     content_dir: content
     branch: main
   avatar:
@@ -84,9 +84,9 @@ features:
     commento:
       url: ""
     giscus:
-      repo: ""
+      repo: "Dawitkiros/dawitkiros.github.io"
       repo_id: ""
-      category: ""
+      category: "General"
       category_id: ""
   search:
     provider: wowchemy
