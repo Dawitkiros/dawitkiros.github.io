@@ -83,7 +83,7 @@ skills:
       - name: Football
         description: ""
         percent: 80
-        icon: soccer
+        icon: football
         icon_pack: fas
       - name: Reading
         description: ""
