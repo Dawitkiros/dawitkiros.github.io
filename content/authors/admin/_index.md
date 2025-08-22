@@ -53,22 +53,18 @@ skills:
     items:
       - name: Python
         description: ""
-        percent: 80
         icon: python
         icon_pack: fab
       - name: Java
         description: ""
-        percent: 50
         icon: java
         icon_pack: fab
       - name: Data Science
         description: ""
-        percent: 80
         icon: chart-line
         icon_pack: fas
       - name: SQL
         description: ""
-        percent: 40
         icon: database
         icon_pack: fas
   - name: Hobbies
@@ -77,22 +73,18 @@ skills:
     items:
       - name: Hiking
         description: ""
-        percent: 60
         icon: person-hiking
         icon_pack: fas
       - name: Football
         description: ""
-        percent: 80
         icon: futbol
         icon_pack: fas
       - name: Reading
         description: ""
-        percent: 80
         icon: book
         icon_pack: fas
       - name: Gym
         description: ""
-        percent: 80
         icon: dumbbell
         icon_pack: fas
 
@@ -130,5 +122,5 @@ social:
 highlight_name: true
 ---
 
-I am currently a PhD researcher at Signal processing group at [NTNU](https://www.ntnu.no/) with Prof. [Stefan Werner](https://www.ntnu.edu/employees/stefan.werner), where I work on advancing federated learning (FL) at the intersection of privacy-preserving machine learning and distributed optimization. My research involves developing new algorithms for communication-efficient training, designing error-feedback methods for non-convex optimization, and analyzing convergence under heterogeneous and resource-constrained settings. I also build practical FL systems that make machine learning feasible on low-resource devices while safeguarding user data. I am always open to collaborations; feel free to reach out if our interests align :)
+I am currently a PhD researcher at [Signal processing group](https://www.ntnu.edu/ies/signal-processing-group) at [NTNU](https://www.ntnu.no/) with Prof. [Stefan Werner](https://www.ntnu.edu/employees/stefan.werner), where I work on advancing [federated learning (FL)](https://federated.withgoogle.com/) at the intersection of privacy-preserving machine learning and distributed optimization. My research involves developing new algorithms for communication-efficient training, designing error-feedback methods for non-convex optimization, and analyzing convergence under heterogeneous and resource-constrained settings. I also build practical FL systems that make machine learning feasible on low-resource devices while safeguarding user data. I am always open to collaborations; feel free to reach out if our interests align :)
 {style="text-align: justify;"}
