@@ -1,5 +1,4 @@
 ---
-
 title: Nothing to see yet
 
 event:
@@ -42,15 +41,14 @@ featured: false
 # focal_point: Right
 
 links:
-
-- icon: twitter
-  icon*pack: fab
-  name: Follow
-  url: https://twitter.com/dawit_kiros*
-  url_code: ""
-  url_pdf: ""
-  url_slides: ""
-  url_video: ""
+  - icon: twitter
+    icon*pack: fab
+    name: Follow
+    url: https://twitter.com/dawit_kiros*
+    url_code: ""
+    url_pdf: ""
+    url_slides: ""
+    url_video: ""
 
 # Markdown Slides (optional).
 
@@ -63,7 +61,6 @@ links:
 # Otherwise, set `slides = ""`.
 
 slides:
-
 # Projects (optional).
 
 # Associate this post with one or more of your projects.
@@ -73,3 +70,4 @@ slides:
 # E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 
 # Otherwise, set `projects = []`.
+---
