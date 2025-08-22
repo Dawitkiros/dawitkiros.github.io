@@ -47,7 +47,7 @@ footer:
   copyright:
     notice: "© {year} Dawit Kiros Redie."
     license:
-      enable: false
+      enable: true
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
