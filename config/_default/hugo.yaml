@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Dawit Kiros Redie # Website name
-baseURL: "https://www.dawitkiros.ai/" # Website URL
+baseURL: "https://dawitkiros.github.io/" # Website URL
 
 ############################
 ## LANGUAGE

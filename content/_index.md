@@ -208,6 +208,16 @@ sections:
   #   design:
   #     columns: "2"
   #     view: card
+  - block: markdown
+    id: projects
+    content:
+      title: Projects
+      text: >-
+        **Gym Tracker App**  
+        A private workout tracker built for consistent training and progress logging.  
+        [Open Gym Tracker](/tracker/)
+    design:
+      columns: "1"
   - block: collection
     id: talks
     content:
