@@ -3,9 +3,11 @@
 1. Create a Supabase project.
 2. In Supabase SQL Editor, run `/tracker/supabase.sql`.
 3. In Auth settings:
-   - Keep email auth enabled.
+   - Keep Email provider enabled.
+   - Enable both password sign-in and magic links.
    - Disable open signups if you want invite-only access.
    - Add/invite the allowed user email(s).
+   - For first-time password setup, use “Forgot password” in the app (or send reset from dashboard).
 4. Fill `/tracker/config.js`:
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY` (public anon key)

@@ -181,6 +181,68 @@ function formatDate(dateStr) {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
 }
 
+function hasRecoveryHash() {
+  const hash = window.location.hash.startsWith("#")
+    ? window.location.hash.slice(1)
+    : window.location.hash;
+  if (!hash) return false;
+
+  const params = new URLSearchParams(hash);
+  return params.get("type") === "recovery";
+}
+
+const RESET_FLOW_KEY = "tracker-password-reset-pending";
+const RESET_QUERY_PARAM = "mode";
+const RESET_QUERY_VALUE = "reset-password";
+const RESET_FLOW_TTL_MS = 60 * 60 * 1000;
+
+function hasResetQueryFlag() {
+  const params = new URLSearchParams(window.location.search || "");
+  return params.get(RESET_QUERY_PARAM) === RESET_QUERY_VALUE;
+}
+
+function setResetFlowPending() {
+  try {
+    window.localStorage.setItem(RESET_FLOW_KEY, String(Date.now()));
+  } catch (_) {}
+}
+
+function clearResetFlowPending() {
+  try {
+    window.localStorage.removeItem(RESET_FLOW_KEY);
+  } catch (_) {}
+}
+
+function hasResetFlowPending() {
+  try {
+    const raw = window.localStorage.getItem(RESET_FLOW_KEY);
+    if (!raw) return false;
+
+    const timestamp = Number(raw);
+    if (!Number.isFinite(timestamp)) {
+      window.localStorage.removeItem(RESET_FLOW_KEY);
+      return false;
+    }
+
+    if (Date.now() - timestamp > RESET_FLOW_TTL_MS) {
+      window.localStorage.removeItem(RESET_FLOW_KEY);
+      return false;
+    }
+
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+function clearRecoveryUrlState() {
+  const url = new URL(window.location.href);
+  url.hash = "";
+  url.searchParams.delete(RESET_QUERY_PARAM);
+  const cleanPath = `${url.pathname}${url.search}`;
+  window.history.replaceState({}, document.title, cleanPath);
+}
+
 // ─── MAIN APP ───────────────────────────────────────────────────────────────
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -195,8 +257,18 @@ function App() {
   const [authSession, setAuthSession] = useState(null);
   const [authError, setAuthError] = useState("");
   const [authNotice, setAuthNotice] = useState("");
+  const [requiresPasswordReset, setRequiresPasswordReset] = useState(
+    hasRecoveryHash() || hasResetQueryFlag() || hasResetFlowPending()
+  );
+  const passwordSignInInProgressRef = useRef(false);
 
   const [backend, setBackend] = useState(localStorageBackend);
+
+  useEffect(() => {
+    if (hasRecoveryHash() || hasResetQueryFlag()) {
+      setResetFlowPending();
+    }
+  }, []);
 
   useEffect(() => {
     if (!SUPABASE_READY) return;
@@ -213,11 +285,49 @@ function App() {
       if (!mounted) return;
       if (error) setAuthError(error.message);
       setAuthSession(data.session || null);
+      setRequiresPasswordReset(
+        Boolean(data.session) && (hasRecoveryHash() || hasResetQueryFlag() || hasResetFlowPending())
+      );
       setAuthReady(true);
     });
 
-    const { data: listener } = client.auth.onAuthStateChange((_event, session) => {
+    const { data: listener } = client.auth.onAuthStateChange((event, session) => {
       setAuthSession(session || null);
+
+      if (event === "PASSWORD_RECOVERY") {
+        setResetFlowPending();
+        setRequiresPasswordReset(true);
+        setAuthError("");
+        setAuthNotice("Set a new password to continue.");
+        return;
+      }
+
+      if (event === "SIGNED_IN" && passwordSignInInProgressRef.current) {
+        clearResetFlowPending();
+        clearRecoveryUrlState();
+        setRequiresPasswordReset(false);
+      }
+
+      if (event === "SIGNED_IN" && (hasRecoveryHash() || hasResetQueryFlag() || hasResetFlowPending())) {
+        setResetFlowPending();
+        setRequiresPasswordReset(true);
+        setAuthError("");
+        setAuthNotice("Set a new password to continue.");
+        return;
+      }
+
+      if (event === "USER_UPDATED") {
+        clearResetFlowPending();
+        clearRecoveryUrlState();
+        setRequiresPasswordReset(false);
+      }
+
+      if (event === "SIGNED_OUT") {
+        clearResetFlowPending();
+        clearRecoveryUrlState();
+        setRequiresPasswordReset(false);
+      }
+
       setAuthError("");
       setAuthNotice("");
     });
@@ -235,7 +345,7 @@ function App() {
   }, [authClient, authSession]);
 
   useEffect(() => {
-    if (!authSession || !authSession.user || !authSession.user.id) return;
+    if (!authSession || !authSession.user || !authSession.user.id || requiresPasswordReset) return;
 
     let cancelled = false;
     setLoaded(false);
@@ -256,7 +366,7 @@ function App() {
     return () => {
       cancelled = true;
     };
-  }, [backend, authSession]);
+  }, [backend, authSession, requiresPasswordReset]);
 
   const updateSettings = useCallback(async (s) => {
     setSettings(s);
@@ -273,6 +383,11 @@ function App() {
     await saveData(STORAGE_KEYS.workoutLogs, w, backend);
   }, [backend]);
 
+  const isAllowedEmail = useCallback((email) => {
+    if (!TRACKER_CONFIG.allowedEmails.length) return true;
+    return TRACKER_CONFIG.allowedEmails.includes(email);
+  }, []);
+
   const sendMagicLink = useCallback(async (emailInput) => {
     if (!authClient) return;
 
@@ -282,7 +397,7 @@ function App() {
       return;
     }
 
-    if (TRACKER_CONFIG.allowedEmails.length && !TRACKER_CONFIG.allowedEmails.includes(email)) {
+    if (!isAllowedEmail(email)) {
       setAuthError("This tracker is restricted to the invited email.");
       return;
     }
@@ -303,6 +418,111 @@ function App() {
 
     setAuthError("");
     setAuthNotice(`Magic link sent to ${email}. Open it on this device to sign in.`);
+  }, [authClient, isAllowedEmail]);
+
+  const signInWithPassword = useCallback(async (emailInput, passwordInput) => {
+    if (!authClient) return;
+
+    const email = (emailInput || "").trim().toLowerCase();
+    const password = passwordInput || "";
+
+    if (!email) {
+      setAuthError("Please enter your email.");
+      return;
+    }
+
+    if (!isAllowedEmail(email)) {
+      setAuthError("This tracker is restricted to the invited email.");
+      return;
+    }
+
+    if (!password) {
+      setAuthError("Please enter your password.");
+      return;
+    }
+
+    passwordSignInInProgressRef.current = true;
+    try {
+      const { error } = await authClient.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        setAuthError(error.message);
+        setAuthNotice("");
+        return;
+      }
+
+      clearResetFlowPending();
+      clearRecoveryUrlState();
+      setRequiresPasswordReset(false);
+      setAuthError("");
+      setAuthNotice("");
+    } finally {
+      passwordSignInInProgressRef.current = false;
+    }
+  }, [authClient, isAllowedEmail]);
+
+  const sendPasswordReset = useCallback(async (emailInput) => {
+    if (!authClient) return;
+
+    const email = (emailInput || "").trim().toLowerCase();
+    if (!email) {
+      setAuthError("Please enter your email.");
+      return;
+    }
+
+    if (!isAllowedEmail(email)) {
+      setAuthError("This tracker is restricted to the invited email.");
+      return;
+    }
+
+    const { error } = await authClient.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/tracker/?${RESET_QUERY_PARAM}=${RESET_QUERY_VALUE}`,
+    });
+
+    if (error) {
+      setAuthError(error.message);
+      setAuthNotice("");
+      return;
+    }
+
+    setResetFlowPending();
+    setAuthError("");
+    setAuthNotice(`Password reset email sent to ${email}. Follow the link to set a password.`);
+  }, [authClient, isAllowedEmail]);
+
+  const completePasswordReset = useCallback(async (newPassword, confirmPassword) => {
+    if (!authClient) return;
+
+    const password = newPassword || "";
+    const confirm = confirmPassword || "";
+
+    if (!password) {
+      setAuthError("Please enter a new password.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setAuthError("Use at least 8 characters for your new password.");
+      return;
+    }
+
+    if (password !== confirm) {
+      setAuthError("Passwords do not match.");
+      return;
+    }
+
+    const { error } = await authClient.auth.updateUser({ password });
+
+    if (error) {
+      setAuthError(error.message);
+      return;
+    }
+
+    setAuthError("");
+    setAuthNotice("Password updated successfully.");
+    clearResetFlowPending();
+    setRequiresPasswordReset(false);
+    clearRecoveryUrlState();
   }, [authClient]);
 
   const signOut = useCallback(async () => {
@@ -328,7 +548,19 @@ function App() {
   if (!authSession) {
     return (
       <AuthScreen
+        onSignInWithPassword={signInWithPassword}
         onSendLink={sendMagicLink}
+        onSendPasswordReset={sendPasswordReset}
+        errorMessage={authError}
+        noticeMessage={authNotice}
+      />
+    );
+  }
+
+  if (requiresPasswordReset) {
+    return (
+      <PasswordRecoveryScreen
+        onUpdatePassword={completePasswordReset}
         errorMessage={authError}
         noticeMessage={authNotice}
       />
@@ -411,8 +643,9 @@ function SecureSetupScreen() {
   );
 }
 
-function AuthScreen({ onSendLink, errorMessage, noticeMessage }) {
+function AuthScreen({ onSignInWithPassword, onSendLink, onSendPasswordReset, errorMessage, noticeMessage }) {
   const [email, setEmail] = useState(TRACKER_CONFIG.allowedEmails[0] || "");
+  const [password, setPassword] = useState("");
 
   return (
     <div style={styles.app}>
@@ -422,7 +655,7 @@ function AuthScreen({ onSendLink, errorMessage, noticeMessage }) {
           Private Gym Tracker
         </h1>
         <p style={{ fontFamily: fonts.body, fontSize: 14, color: colors.textMuted, lineHeight: 1.5, marginBottom: 24 }}>
-          Sign in with your email magic link to access and sync your training logs securely.
+          Sign in with email and password. Use magic link if you prefer passwordless access.
         </p>
 
         <label style={styles.label}>Email</label>
@@ -434,6 +667,15 @@ function AuthScreen({ onSendLink, errorMessage, noticeMessage }) {
           onChange={(e) => setEmail(e.target.value)}
         />
 
+        <label style={{ ...styles.label, marginTop: 14 }}>Password</label>
+        <input
+          style={styles.input}
+          type="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
         {errorMessage ? (
           <p style={{ fontFamily: fonts.body, fontSize: 13, color: colors.danger, marginTop: 10 }}>{errorMessage}</p>
         ) : null}
@@ -441,8 +683,73 @@ function AuthScreen({ onSendLink, errorMessage, noticeMessage }) {
           <p style={{ fontFamily: fonts.body, fontSize: 13, color: colors.success, marginTop: 10 }}>{noticeMessage}</p>
         ) : null}
 
-        <button style={{ ...styles.btnPrimary, marginTop: 16 }} onClick={() => onSendLink(email)}>
+        <button style={{ ...styles.btnPrimary, marginTop: 16 }} onClick={() => onSignInWithPassword(email, password)}>
+          Sign In With Password
+        </button>
+
+        <button
+          style={{ ...styles.btnOutline, width: "100%", marginTop: 10 }}
+          onClick={() => onSendLink(email)}
+        >
           Send Magic Link
+        </button>
+
+        <button
+          style={{ ...styles.backBtn, marginTop: 12 }}
+          onClick={() => onSendPasswordReset(email)}
+        >
+          Forgot password? Send reset email
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function PasswordRecoveryScreen({ onUpdatePassword, errorMessage, noticeMessage }) {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  return (
+    <div style={styles.app}>
+      <div style={{ padding: "60px 24px 24px" }}>
+        <div style={{ fontSize: 44, marginBottom: 8 }}>🔑</div>
+        <h1 style={{ fontFamily: fonts.heading, fontSize: 28, color: colors.text, margin: "0 0 8px" }}>
+          Set New Password
+        </h1>
+        <p style={{ fontFamily: fonts.body, fontSize: 14, color: colors.textMuted, lineHeight: 1.5, marginBottom: 24 }}>
+          This reset link is valid. Set a new password before accessing your tracker.
+        </p>
+
+        <label style={styles.label}>New Password</label>
+        <input
+          style={styles.input}
+          type="password"
+          placeholder="At least 8 characters"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <label style={{ ...styles.label, marginTop: 14 }}>Confirm Password</label>
+        <input
+          style={styles.input}
+          type="password"
+          placeholder="Re-enter password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+
+        {errorMessage ? (
+          <p style={{ fontFamily: fonts.body, fontSize: 13, color: colors.danger, marginTop: 10 }}>{errorMessage}</p>
+        ) : null}
+        {noticeMessage ? (
+          <p style={{ fontFamily: fonts.body, fontSize: 13, color: colors.success, marginTop: 10 }}>{noticeMessage}</p>
+        ) : null}
+
+        <button
+          style={{ ...styles.btnPrimary, marginTop: 16 }}
+          onClick={() => onUpdatePassword(password, confirmPassword)}
+        >
+          Update Password
         </button>
       </div>
     </div>
