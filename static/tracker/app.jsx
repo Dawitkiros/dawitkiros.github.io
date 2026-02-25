@@ -644,7 +644,7 @@ function SecureSetupScreen() {
 }
 
 function AuthScreen({ onSignInWithPassword, onSendLink, onSendPasswordReset, errorMessage, noticeMessage }) {
-  const [email, setEmail] = useState(TRACKER_CONFIG.allowedEmails[0] || "");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
