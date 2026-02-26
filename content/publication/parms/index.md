@@ -1,38 +1,37 @@
 ---
-title: "Diagnosis of COVID-19 using chest X-ray images based on modified DarkCovidNet model."
+title: "Enhancing Efficiency and Privacy in Federated Learning via Partial Model Sharing."
 authors:
   - Dawit Kiros Redie
-  - Abdulhakim Edao Sirko
-  - Tensaie Melkamu Demissie
-  - Semagn Sisay Teferi
-  - Vimal Kumar Shrivastava
-  - Om Prakash Verma
-  - Tarun Kumar Sharma
-date: "2022-09-01T00:00:00Z"
-doi: "https://doi.org/10.1007/s12065-021-00679-7"
+  - Reza Arablouei
+  - Stefan Werner
+date: "2025-11-01T00:00:00Z"
+doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2022-09-01T00:00:00Z"
+publishDate: "2025-12-01T00:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
 # Enter a publication type from the CSL standard.
-publication_types: ["article-journal"]
+publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Evolutionary Intelligence*"
+publication: "59th Asilomar Conference on Signals, Systems, and Computers"
 publication_short: ""
 
-abstract: This study presents a CNN-based model using chest X-ray images for accurate COVID-19 detection. The model achieved 99.53% accuracy for binary classification and 94.18% for multi-class classification.
+abstract: Communication overhead and privacy risks remain significant challenges in federated learning (FL). We introduce Partial Model Sharing (ParMS), a novel framework that enhances both communication efficiency and data privacy in FL. ParMS partitions model parameters into blocks, enabling each client to securely share only a small encrypted subset of parameters in each communication round. The central server aggregates these partial updates without directly accessing any client's complete model, mitigating privacy leakage, including leakage from gradient inversion attacks. We formally establish ParMS as a valid compression operator and provide theoretical guarantees for its convergence under standard assumptions. Extensive experiments show that ParMS substantially reduces communication and computational costs while improving resilience to privacy attacks, offering a practical and scalable approach for privacy-preserving FL.
 
 tags:
-  - Convolutional Neural Networks
+  - Federated Learning
+  - Homomorphic Encryption
+  - Gradient Inversion Attacks
+  - Communication Efficiency
 featured: false
 
 # links:
 # - name: ""
 #   url: ""
-url_pdf: https://link.springer.com/article/10.1007/s12065-021-00679-7
+url_pdf: ""
 url_code: ""
 url_dataset: ""
 url_poster: ""
@@ -62,9 +61,9 @@ projects: []
 # slides: example
 ---
 
-{{% callout note %}}
+<!-- {{% callout note %}}
 Click the _Cite_ button above to import publication metadata into your reference management software.
-{{% /callout %}}
+{{% /callout %}} -->
 
 <!-- {{% callout note %}}
 Create your slides in Markdown - click the _Slides_ button to check out the example.

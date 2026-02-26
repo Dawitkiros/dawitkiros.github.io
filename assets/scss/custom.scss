@@ -1,0 +1,15 @@
+/* Hide skills progress bars for a cleaner, professional look. */
+.skills-wrapper {
+  display: none;
+}
+
+/* Increase contrast for skills labels and icons on light background. */
+.skills-name {
+  color: #4a4a4a;
+}
+
+.skills-icon i,
+.skills-icon img {
+  color: #2f2f2f;
+  fill: #2f2f2f;
+}

@@ -1,9 +1,9 @@
 ---
-title: My first Blog!
+title: First Post!
 date: "2025-08-22"
-summary: Starting is always scary but we go!
+summary: coming soon!
 ---
 
 ```python
-print(" Welcome to my first blog!")
+print("Welcome — thanks for reading.")
 ```

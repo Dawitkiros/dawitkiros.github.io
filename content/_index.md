@@ -18,7 +18,7 @@ sections:
       # Choose a user to display skills from (a folder name within `content/authors/`)
       username: admin
     design:
-      columns: "1"
+      columns: "2"
   - block: experience
     content:
       title: Experience
@@ -31,21 +31,19 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - title: Researcher and teaching assistant
+        - title: PhD Researcher and Teaching Assistant
           company: NTNU
           company_url: "https://www.ntnu.no/"
           company_logo: ntnu
-          location: Trondehim, Norway
+          location: Trondheim, Norway
           date_start: "2023-12-01"
           date_end: ""
           description: |2-
-            Working on developing innovative privacy-preserving and efficient federated learning models.
-            As a TA, I assist students with their homework and assignments, collaborate with professors to ensure smooth course administration, and grade exams efficiently.    
-            Courses:
-
-            * Estimation, Detection and Classification (Master level).
-            * Digital Signal Processing (Master level)
-        - title: Software Engineering Intern
+            * Developing privacy-preserving and personalized federated learning methods; studying heterogeneity, compression, and partial participation.
+            * Designing communication-efficient training ideas (e.g., sparsification/quantization with error feedback) with theoretical analyses.
+            * Building reproducible research code in Python/PyTorch and running controlled sweeps on GPU/HPC environments.
+            * Teaching assistant for TTT4275 (Estimation, Detection and Classification) and TTT4120 (Digital Signal Processing).
+        - title: Data Engineer Intern
           company: Johnson Controls
           company_url: "https://www.johnsoncontrols.com/"
           company_logo: jci
@@ -53,11 +51,10 @@ sections:
           date_start: "2023-01-01"
           date_end: "2023-09-01"
           description: |2-
-            Key responsibilities included:
-
-            * Created a data loss detection system using Spring Boot framework.
-            * Reduced data processing time by 50% by transitioning spark jobs to PySpark.
-            * Engineered a synchronization system between Snowflake and PostgreSQL databases.
+            * Built a data-loss detection service using Spring Boot, automating ~12 hours of manual work.
+            * Reduced data processing time by 50% by transitioning Spark jobs to PySpark and optimizing ETL workflows.
+            * Engineered synchronization between Snowflake and PostgreSQL to ensure reliable, consistent data flow.
+            * Developed a predictive maintenance model using historical equipment data to reduce downtime and maintenance costs.
 
         - title: Teaching Assistant in Data Structures
           company: KIIT University
@@ -66,7 +63,9 @@ sections:
           location: Bhubaneswar, India
           date_start: "2022-09-01"
           date_end: "2023-01-01"
-          description: Assisted professors in developing and delivering an engaging curriculum focused on data structures using C++ and Python.
+          description: |2-
+            * Supported lectures and labs; provided 1:1 and small-group instruction and grading support.
+            * Designed and delivered practice material in C++/Python (arrays, trees, graphs, complexity), improving student engagement and mastery.
 
         - title: Research Intern in AI Applications
           company: KIIT University
@@ -75,7 +74,8 @@ sections:
           location: Bhubaneswar, India
           date_start: "2020-07-01"
           date_end: "2020-09-01"
-          description: Gained knowledge on various artificial intelligence concepts and their applications in the electronics field.
+          description: |2-
+            Explored applications of artificial intelligence in power electronics; implemented small prototypes and literature reviews to evaluate feasibility.
     design:
       columns: "2"
   # - block: accomplishments
@@ -135,6 +135,18 @@ sections:
     design:
       columns: "2"
       view: citation
+  - block: markdown
+    id: awards
+    content:
+      title: Awards
+      text: |-
+        * Ethiopian Betre-Science Government Scholarship (Aug 2017)
+        * KIIT Merit Scholarship (Feb 2019 – Jul 2021)
+        * Vice-Chancellor’s Silver Medal (Aug 2021)
+
+        {{% callout note %}}
+        See all awards [here](./awards/).
+        {{% /callout %}}
   - block: collection
     id: posts
     content:
@@ -240,8 +252,9 @@ sections:
       subtitle:
       text: |-
         Feel free to reach out to me for any inquiries or collaborations. I'm always open to discussing new projects, creative ideas, or any opportunities.
+        Email: dawit.k.redie@ntnu.no (primary) and dawit.k.redie@gmail.com (secondary).
       # Contact (add or remove contact options as necessary)
-      email: dawit[dot]k[dot]redie@ntnu.no
+      email: dawit.k.redie@ntnu.no
       phone:
       appointment_url:
       address:

@@ -17,7 +17,7 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: PhD Candidate
+role: PhD Researcher
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -25,47 +25,95 @@ organizations:
     url: https://www.ntnu.no/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Pushing myself to dive deeper into machine learning research to keep up with the evolving demands of the field.
+bio: PhD researcher at NTNU working on communication-efficient, privacy-aware federated learning and distributed optimization under client heterogeneity and partial participation.
 
 # Interests to show in About widget
 interests:
   - Federated Learning
-  - Privacy-preserving and efficient Machine Learning
-  - Distributed optimization
+  - Distributed Optimization
+  - Privacy-preserving Machine Learning
+  - Communication-efficient FL
+  - On-device Learning
 
 # Education to show in About widget
 education:
   courses:
-    - course: PhD in Electronics and Telecommunications
+    - course: PhD in Statistical Signal Processing and Machine Learning at the Edge
       institution: Norwegian University of Science and Technology (NTNU)
       year: 2023 - 2027
-    - course: MTech in Computer Science Engineering Specialization in Software engineering
+    - course: MTech in Computer Science Engineering (Software Engineering)
       institution: Kalinga Institute of Industrial Technology (KIIT)
-      year: 2021 - 2023
+      year: 2023
     - course: BTech in Electronics and Computer Science Engineering
       institution: Kalinga Institute of Industrial Technology (KIIT)
-      year: 2017 - 2021
+      year: 2021
 
 # Skills
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 skills:
-  - name: Technical
+  - name: Technical (Core)
+    color: "#2f80ed"
+    color_border: "#8ebdff"
     items:
       - name: Python
         description: ""
         icon: python
         icon_pack: fab
+      - name: C++
+        description: ""
+        icon: code
+        icon_pack: fas
       - name: Java
         description: ""
         icon: java
         icon_pack: fab
-      - name: Data Science
+      - name: Scala
         description: ""
-        icon: chart-line
+        icon: code-branch
         icon_pack: fas
-      - name: SQL
+  - name: Technical (ML/Systems)
+    color: "#2f80ed"
+    color_border: "#8ebdff"
+    items:
+      - name: PyTorch
+        description: ""
+        icon: fire
+        icon_pack: fas
+      - name: Flower
+        description: ""
+        icon: seedling
+        icon_pack: fas
+      - name: Ray
+        description: ""
+        icon: network-wired
+        icon_pack: fas
+      - name: SLURM
+        description: ""
+        icon: server
+        icon_pack: fas
+  - name: Technical (Data/Tools)
+    color: "#2f80ed"
+    color_border: "#8ebdff"
+    items:
+      - name: Spark / PySpark
+        description: ""
+        icon: bolt
+        icon_pack: fas
+      - name: Snowflake
+        description: ""
+        icon: snowflake
+        icon_pack: fas
+      - name: PostgreSQL / SQL
         description: ""
         icon: database
+        icon_pack: fas
+      - name: Git
+        description: ""
+        icon: code-fork
+        icon_pack: fas
+      - name: LaTeX
+        description: ""
+        icon: file-lines
         icon_pack: fas
   - name: Hobbies
     color: "#eeac02"
@@ -122,5 +170,5 @@ social:
 highlight_name: true
 ---
 
-I am currently a PhD researcher at [Signal processing group](https://www.ntnu.edu/ies/signal-processing-group) at [NTNU](https://www.ntnu.no/) with Prof. [Stefan Werner](https://www.ntnu.edu/employees/stefan.werner), where I work on advancing [federated learning (FL)](https://federated.withgoogle.com/) at the intersection of privacy-preserving machine learning and distributed optimization. My research involves developing new algorithms for communication-efficient training, designing error-feedback methods for non-convex optimization, and analyzing convergence under heterogeneous and resource-constrained settings. I also build practical FL systems that make machine learning feasible on low-resource devices while safeguarding user data. I am always open to collaborations; feel free to reach out if our interests align :)
+I am a PhD researcher at the [Signal processing group](https://www.ntnu.edu/ies/signal-processing-group) at [NTNU](https://www.ntnu.no/) with Prof. [Stefan Werner](https://www.ntnu.edu/employees/stefan.werner). My work focuses on communication-efficient, privacy-aware federated learning and distributed optimization under client heterogeneity and partial participation. I design compression/error-feedback algorithms with theoretical convergence analysis and build scalable experiments in PyTorch on GPU/HPC systems. I am always open to collaborations; feel free to reach out if our interests align.
 {style="text-align: justify;"}
