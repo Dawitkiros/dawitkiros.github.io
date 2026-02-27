@@ -1,5 +1,5 @@
 ---
-title: "Oral cancer detection using transfer learning-based framework from histopathology images."
+title: "Oral cancer detection using transfer learning-based framework from histopathology images"
 authors:
   - Dawit Kiros Redie
   - Saurabh Bilgaiyan

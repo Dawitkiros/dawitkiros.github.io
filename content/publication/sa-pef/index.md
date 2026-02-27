@@ -1,5 +1,5 @@
 ---
-title: "SA-PEF: Step-Ahead Partial Error Feedback for Efficient Federated Learning."
+title: "SA-PEF: Step-Ahead Partial Error Feedback for Efficient Federated Learning"
 authors:
   - Dawit Kiros Redie
   - Reza Arablouei

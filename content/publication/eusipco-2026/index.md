@@ -1,5 +1,5 @@
 ---
-title: "Block-Wise Sparsification with Error Feedback for Communication-Efficient Federated Learning."
+title: "Block-Wise Sparsification with Error Feedback for Communication-Efficient Federated Learning"
 authors:
   - Dawit Kiros Redie
   - Ramin Arablouei

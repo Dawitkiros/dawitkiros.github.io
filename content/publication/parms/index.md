@@ -1,5 +1,5 @@
 ---
-title: "Enhancing Efficiency and Privacy in Federated Learning via Partial Model Sharing."
+title: "Enhancing Efficiency and Privacy in Federated Learning via Partial Model Sharing"
 authors:
   - Dawit Kiros Redie
   - Reza Arablouei

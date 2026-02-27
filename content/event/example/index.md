@@ -41,10 +41,10 @@ featured: false
 # focal_point: Right
 
 links:
-  - icon: twitter
-    icon*pack: fab
+  - icon: x
+    icon_pack: custom
     name: Follow
-    url: https://twitter.com/dawit_kiros*
+    url: https://x.com/dawit_kiros_
     url_code: ""
     url_pdf: ""
     url_slides: ""

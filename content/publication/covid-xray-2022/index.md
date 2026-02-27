@@ -1,5 +1,5 @@
 ---
-title: "Diagnosis of COVID-19 using chest X-ray images based on modified DarkCovidNet model."
+title: "Diagnosis of COVID-19 using chest X-ray images based on modified DarkCovidNet model"
 authors:
   - Dawit Kiros Redie
   - Abdulhakim Edao Sirko

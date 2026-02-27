@@ -141,27 +141,19 @@ skills:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
-  - icon: envelope
-    icon_pack: fas
-    link: "/#contact"
   - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
     icon_pack: fas
     link: https://scholar.google.com/citations?user=6JvO3kgAAAAJ&hl=en
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/dawit_kiros_
-    label: Follow me on Twitter
-    display:
-      header: true
   - icon: github
     icon_pack: fab
     link: https://github.com/dawitkiros
   - icon: linkedin
     icon_pack: fab
     link: https://www.linkedin.com/dawit-kiros
-  # Link to a PDF of your resume/CV.
-  # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
-  # and uncomment the lines below.
+  - icon: x
+    icon_pack: custom
+    link: https://x.com/dawit_kiros_
+    label: Follow me on X
   - icon: cv
     icon_pack: ai
     link: uploads/Dawit_Kiros_Redie_resume.pdf

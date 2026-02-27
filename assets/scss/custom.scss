@@ -13,3 +13,45 @@
   color: #2f2f2f;
   fill: #2f2f2f;
 }
+
+/* Custom X icon for social links (Font Awesome doesn't include it in this theme). */
+.custom.custom-x {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: #1565c0;
+  mask: url("/media/icons/custom/x.svg") no-repeat center / contain;
+  -webkit-mask: url("/media/icons/custom/x.svg") no-repeat center / contain;
+  color: transparent;
+  transform: scale(1.15);
+  transform-origin: center;
+}
+
+/* Dark mode: use white X to match other icons. */
+/* Dark mode: make social icons pure white for higher contrast. */
+.dark .network-icon a,
+.dark .network-icon i {
+  color: #ffffff !important;
+}
+
+/* If any social icons are SVG/img, force them to white in dark mode. */
+.dark .network-icon img,
+.dark .network-icon svg {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Ensure custom X uses pure white in dark mode. */
+.dark .custom.custom-x,
+.dark .network-icon .custom.custom-x {
+  background-color: #ffffff !important;
+}
+
+/* DM Me icon: keep dark background in light mode. */
+.wg-contact .custom.custom-x {
+  background-color: #111111;
+}
+
+/* DM Me icon in dark mode: white to match other icons. */
+.dark .wg-contact .custom.custom-x {
+  background-color: #ffffff;
+}
