@@ -43,6 +43,16 @@ sections:
             * Designing communication-efficient training ideas (e.g., sparsification/quantization with error feedback) with theoretical analyses.
             * Building reproducible research code in Python/PyTorch and running controlled sweeps on GPU/HPC environments.
             * Teaching assistant for TTT4275 (Estimation, Detection and Classification) and TTT4120 (Digital Signal Processing).
+        - title: Data Scientist
+          company: "ReLU | Collaboration with Oslo University Hospital (OUS)"
+          company_url: "https://reluntnu.no/segmentation-of-abdominal-aortic-aneurysms"
+          location: Trondheim, Norway
+          date_start: "2025-09-01"
+          date_end: ""
+          description: |2-
+            * Building an end-to-end pipeline for Abdominal Aortic Aneurysm (AAA) segmentation from abdominal CT, using TotalSegmentator for organ masks, aorta seed points, and geometry/boundary constraints.
+            * Developing a global controller for SO(3)-equivariant aorta tracking and contributing to dataset preparation and reproducible experiments (splits, metrics, ablations).
+            * Project: [Segmentation of Abdominal Aortic Aneurysms (ReLU NTNU)](https://reluntnu.no/segmentation-of-abdominal-aortic-aneurysms)
         - title: Data Engineer Intern
           company: Johnson Controls
           company_url: "https://www.johnsoncontrols.com/"

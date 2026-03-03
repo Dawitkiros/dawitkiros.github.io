@@ -13,3 +13,4 @@ bin/
 static/.DS_Store
 static/uploads/.DS_Store
 tracker.jsx
+tracker_data/
