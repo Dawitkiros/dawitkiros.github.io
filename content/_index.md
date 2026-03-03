@@ -67,7 +67,7 @@ sections:
             * Engineered synchronization between Snowflake and PostgreSQL to ensure reliable, consistent data flow.
             * Developed a predictive maintenance model using historical equipment data to reduce downtime and maintenance costs.
 
-        - title: Teaching Assistant in Data Structures
+        - title: Teaching Assistant in Data Structures and Algorithms (DSA)
           company: KIIT University
           company_url: "https://kiit.ac.in/"
           company_logo: kiit
