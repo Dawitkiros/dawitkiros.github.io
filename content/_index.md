@@ -46,6 +46,7 @@ sections:
         - title: Data Scientist
           company: "ReLU | Collaboration with Oslo University Hospital (OUS)"
           company_url: "https://reluntnu.no/segmentation-of-abdominal-aortic-aneurysms"
+          company_logo: relu_ntnu
           location: Trondheim, Norway
           date_start: "2025-09-01"
           date_end: ""
