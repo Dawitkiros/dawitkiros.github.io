@@ -29,9 +29,10 @@ tags:
 featured: false
 
 # links:
-# - name: ""
-#   url: ""
-url_pdf: ""
+links:
+  - name: IEEE Xplore
+    url: "https://ieeexplore.ieee.org/document/11443675"
+url_pdf: "https://ieeexplore.ieee.org/document/11443675"
 url_code: ""
 url_dataset: ""
 url_poster: ""
