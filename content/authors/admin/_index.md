@@ -149,7 +149,7 @@ social:
     link: https://github.com/dawitkiros
   - icon: linkedin
     icon_pack: fab
-    link: https://www.linkedin.com/dawit-kiros
+    link: https://www.linkedin.com/in/dawit-redie/
   - icon: x
     icon_pack: custom
     link: https://x.com/dawit_kiros_
