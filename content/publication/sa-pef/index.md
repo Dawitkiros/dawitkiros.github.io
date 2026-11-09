@@ -22,10 +22,21 @@ publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
 
-publication: "arXiv preprint"
+publication: "Transactions on Machine Learning Research"
 publication_short: ""
 
-abstract: ""
+abstract: >-
+  Biased gradient compression with error feedback (EF) reduces communication in federated learning (FL), but under non-IID data, the residual error can decay slowly, causing gradient mismatch and stalled progress in the early rounds.
+  We propose step-ahead partial error feedback (SA-PEF), which integrates step-ahead (SA) correction with partial error feedback (PEF).
+  SA-PEF recovers EF when the step-ahead coefficient $\\alpha = 0$ and step-ahead EF (SAEF) when $\\alpha = 1$.
+  For non-convex objectives and $\\delta$-contractive compressors, we establish a second-moment bound and a residual recursion that guarantee convergence to stationarity under heterogeneous data and partial client participation.
+  The resulting rates match standard non-convex Fed-SGD guarantees up to constant factors, achieving $O((\\eta,\\eta_0TR)^{-1})$ convergence to a variance/heterogeneity floor with a fixed inner step size.
+  Our analysis reveals a step-ahead-controlled residual contraction $\\rho_r$ that explains the observed acceleration in the early training phase.
+  To balance SAEF's rapid warm-up with EF's long-term stability, we select $\\alpha$ near its theory-predicted optimum.
+  Experiments across diverse architectures and datasets show that SA-PEF consistently reaches target accuracy faster than EF.
+abstract_source: "https://arxiv.org/abs/2601.20738"
+
+research_areas: [federated, communication]
 
 tags:
   - Federated Learning
@@ -35,6 +46,7 @@ tags:
 featured: false
 
 math: true
+show_citation: false
 
 # links:
 
@@ -57,13 +69,6 @@ image:
   preview_only: false
 ---
 
-{{% callout note %}}
-Click the _Cite_ button above to import publication metadata into your reference management software.
-{{% /callout %}}
-
-## Abstract
-
-Biased gradient compression with error feedback (EF) reduces communication in federated learning (FL), but under non-IID data, the residual error can decay slowly, causing gradient mismatch and stalled progress in the early rounds. We propose step-ahead partial error feedback (SA-PEF), which integrates step-ahead (SA) correction with partial error feedback (PEF). SA-PEF recovers EF when the step-ahead coefficient $\\alpha = 0$ and step-ahead EF (SAEF) when $\\alpha = 1$. For non-convex objectives and $\\delta$-contractive compressors, we establish a second-moment bound and a residual recursion that guarantee convergence to stationarity under heterogeneous data and partial client participation. The resulting rates match standard non-convex Fed-SGD guarantees up to constant factors, achieving $\\mathcal{O}((\\eta,\\eta_0TR)^{-1})$ convergence to a variance/heterogeneity floor with a fixed inner step size. Our analysis reveals a step-ahead-controlled residual contraction $\\rho_r$ that explains the observed acceleration in the early training phase. To balance SAEF's rapid warm-up with EF's long-term stability, we select $\\alpha$ near its theory-predicted optimum. Experiments across diverse architectures and datasets show that SA-PEF consistently reaches target accuracy faster than EF.
 
 <!-- {{% callout note %}}
 Create your slides in Markdown - click the _Slides_ button to check out the example.

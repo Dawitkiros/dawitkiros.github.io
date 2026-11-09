@@ -1,50 +1,70 @@
-# [Hugo Academic CV Theme](https://github.com/HugoBlox/theme-academic-cv)
+# Dawit Kiros Redie - personal website
 
-[![Screenshot](./preview.png)](https://hugoblox.com/templates/)
+A custom, compact research portfolio built with Hugo. All layouts, styles, and interactions are local to this repository; there is no HugoBlox, Bootstrap, or theme dependency.
 
-The Hugo **Academic Resumé Template** empowers you to easily create your job-winning online resumé, showcase your academic publications, and create online courses or knowledge bases to grow your audience.
+## Local development
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/templates/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/GetResearchDev?label=Follow%20on%20Twitter)](https://twitter.com/GetResearchDev)
+```sh
+./bin/hugo server -D
+```
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, Hugo Blox Builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+Open http://localhost:1313.
+Use Hugo 0.169.0, matching the GitHub Pages workflow and the local `./bin/hugo` binary.
 
-Easily write technical content with plain text Markdown, LaTeX math, diagrams, RMarkdown, or Jupyter, and import publications from BibTeX.
+Build the production site:
 
-[Check out the latest demo](https://academic-demo.netlify.app/) of what you'll get in less than 10 minutes, or [get inspired by our academics and research groups](https://hugoblox.com/creators/).
+```sh
+./bin/hugo --minify
+python3 scripts/check-public-output.py public
+```
 
-The integrated [**Hugo Blox Builder**](https://hugoblox.com) and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+Hugo writes the website to `public/` and cleans stale generated files on each build.
+The GitHub Pages workflow builds and deploys on pushes to `main`.
 
-- 👉 [**Get Started**](https://hugoblox.com/templates/)
-- 📚 [View the **documentation**](https://docs.hugoblox.com/)
-- 💬 [Chat with the **Hugo Blox Builder community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@GetResearchDev](https://twitter.com/GetResearchDev) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithHugoBlox](https://twitter.com/search?q=%23MadeWithHugoBlox&src=typed_query)
-- ⬇️ **Automatically import your publications from BibTeX** with the [Hugo Academic CLI](https://github.com/GetRD/academic-file-converter)
-- 💡 [Suggest an improvement](https://github.com/HugoBlox/hugo-blox-builder/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://docs.hugoblox.com/reference/update/) and [Release Notes](https://github.com/HugoBlox/hugo-blox-builder/releases)
+## Editing content
 
-## We ask you, humbly, to support this open source movement
+- `layouts/index.html`: homepage introduction, research areas, and project summaries.
+- `content/authors/admin/_index.md`: education, tools, and author biography.
+- `content/authors/admin/avatar.jpg`: profile photo.
+- `content/publication/*/index.md`: publication metadata and abstracts. The latest three appear on the homepage; the archive includes all publications and topic filters.
+- Publication bundles can include `cite.bib` for a citation download and a local PDF.
+- `data/home.json`: work experience and expandable descriptions, migrated from the previous homepage.
+- `config/_default/params.yaml`: contact details, social links, and CV path.
+- `config/_default/menus.yaml`: navigation.
+- `assets/css/site.css`: responsive layout and light/dark themes.
+- `assets/js/`: theme preference, archive filters, and current-section navigation.
 
-Today we ask you to defend the open source independence of the Hugo Blox Builder and themes 🐧
+The design uses system fonts and local SVG icons. JavaScript is optional for reading and navigating the site; experience expands through native HTML details elements. Color preferences follow the system until a visitor selects a theme.
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+Pages with `math: true` load pinned MathJax 3.2.2 from jsDelivr with a verified integrity hash; other pages do not load it.
+See the [MathJax loading documentation](https://docs.mathjax.org/en/v3.2/web/start.html).
+The gym tracker source and configuration remain in `static/tracker/`, but that directory and `content/project/gym-tracker/` are excluded from the website build through `config/_default/module.yaml`.
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+## Deployment security
 
-<p align="center"><a href="https://hugoblox.com/templates/" target="_blank" rel="noopener"><img src="https://hugoblox.com/uploads/readmes/academic_logo_200px.png" alt="Hugo Academic Theme for Hugo Blox Builder"></a></p>
+Production HTML includes a Content Security Policy that blocks inline scripts, evaluated JavaScript, forms, frames, and network connections.
+Math pages allow scripts and fonts from the pinned MathJax package path; inline styles remain allowed for syntax highlighting and MathJax.
+The development server omits this policy so Hugo live reload can work.
+Meta policies cannot enforce `frame-ancestors`, so this configuration does not claim to prevent other sites from framing the portfolio.
 
-## Demo image credits
+The Pages workflow pins actions to commit hashes and verifies the Hugo archive checksum before execution.
+Only the deployment job receives Pages write permission and an identity token; the build job has read access.
+The artifact check rejects tracker files, hidden files, common credential patterns, inline scripts, insecure URLs, and unapproved or modified JavaScript/CSS assets.
+It is a focused deployment check, not a replacement for a full secret scanner.
 
-- [Unsplash](https://unsplash.com)
+When enabling GitHub Pages, select GitHub Actions as the build source and keep **Enforce HTTPS** enabled in the repository's Pages settings.
+See [GitHub's HTTPS guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
+If the tracker is deployed separately later, verify its Supabase row-level policies and disable public signups in Supabase; the client-side email list is not an authorization boundary.
 
-## Latest news
+## Research area links
 
-<!--START_SECTION:news-->
+The homepage research areas link to the publication archive with a shareable `?topic=` filter.
+Topic labels and descriptions are maintained in `data/research_areas.yaml`.
+Assign publications to one or more areas through the `research_areas` front matter field, using `federated`, `communication`, and `privacy-medical`.
+The same field and topic IDs can be reused for future blog posts.
 
-- [Easily make an academic CV website to get more cites and grow your audience 🚀](https://hugoblox.com/blog/easily-make-academic-website/)
-- [What&#39;s new in v5.2?](https://hugoblox.com/blog/whats-new-in-v5.2/)
-- [What&#39;s new in v5.1?](https://hugoblox.com/blog/whats-new-in-v5.1/)
-- [Version 5.0 (February 2021)](https://hugoblox.com/blog/version-5.0-february-2021/)
-- [Version 5.0 Beta 3 (February 2021)](https://hugoblox.com/blog/version-5.0-beta-3-february-2021/)
-<!--END_SECTION:news-->
+## Homepage animation
+
+The introduction animation uses `layouts/partials/federated-learning.html`, point positions in `data/federated_learning.json`, and behavior in `assets/js/federated-learning.js`.
+It plays once when visible, pauses offscreen, and respects the visitor's reduced-motion preference.
+Each round averages three selected model colors; the server begins white and all clients synchronize in the final broadcast.

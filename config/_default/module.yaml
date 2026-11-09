@@ -1,10 +1,17 @@
-############################
-## HUGO MODULES
-## Install or uninstall themes and plugins here.
-## Docs: https://gohugo.io/hugo-modules/
-############################
-
-imports:
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-reveal
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5
+# All layouts and assets are local. No theme imports.
+imports: []
+hugoVersion:
+  min: '0.169.0'
+mounts:
+  - source: static
+    target: static
+    files:
+      - '! tracker'
+      - '! tracker/**'
+      - '! .DS_Store'
+      - '! **/.DS_Store'
+  - source: content
+    target: content
+    files:
+      - '! project/gym-tracker'
+      - '! project/gym-tracker/**'

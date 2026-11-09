@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  {{ if not hugo.IsServer }}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self'{{ if .Params.math }} https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/{{ end }}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'{{ if .Params.math }} https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/{{ end }}; connect-src 'none'; frame-src 'none'">
+  {{ end }}
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ if not .IsHome }}{{ .Title }}, {{ end }}{{ site.Title }}</title>
+  <meta name="description" content="{{ .Description | default .Params.abstract | default site.Params.description | plainify }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ .Description | default .Params.abstract | default site.Params.description | plainify }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{ if and .IsPage (eq .Section "publication") }}
+  <meta name="citation_title" content="{{ .Title }}">
+  {{ range .Params.authors }}<meta name="citation_author" content="{{ . }}">{{ end }}
+  <meta name="citation_publication_date" content="{{ .Date.Format "2006/01/02" }}">
+  {{ with .Params.url_pdf }}<meta name="citation_pdf_url" content="{{ . | absURL }}">{{ end }}
+  {{ end }}
+  {{ with site.GetPage "authors/admin" }}{{ with .Resources.GetMatch "avatar*" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}{{ end }}
+  {{ with resources.Get "media/icon.png" }}<link rel="icon" href="{{ .RelPermalink }}">{{ end }}
+  {{ with resources.Get "js/theme.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}
+  {{ with resources.Get "css/site.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">{{ end }}
+  {{ with resources.Get "js/site.js" | minify | fingerprint }}<script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}
+  {{ if .IsHome }}{{ with resources.Get "js/federated-learning.js" | minify | fingerprint }}<script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}{{ end }}
+  {{ if .Params.math }}
+  {{ with resources.Get "js/math-config.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+  {{ end }}
+  {{ range .AlternativeOutputFormats }}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">{{ end }}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="wordmark" href="{{ "/" | relURL }}" aria-label="Dawit Kiros Redie - home">Dawit Kiros Redie</a>
+    <nav class="main-nav" aria-label="Main navigation">{{ range site.Menus.main }}{{ if or (ne .Identifier "projects") site.Params.show_projects }}<a href="{{ .URL | relURL }}">{{ .Name }}</a>{{ end }}{{ end }}</nav>
+    <div class="header-actions"><a class="cv-link" href="{{ site.Params.cv | relURL }}">CV {{ partial "icon.html" "arrow-up-right" }}</a><button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">{{ partial "icon.html" "sun" }}{{ partial "icon.html" "moon" }}</button></div>
+  </div></header>
+  <div class="site-layout">{{ partial "profile.html" . }}<main id="main" tabindex="-1">{{ block "main" . }}{{ end }}
+    <footer class="site-footer"><span>© {{ now.Year }} Dawit Kiros Redie</span><a href="#main">Back to top ↑</a></footer>
+  </main></div>
+</body></html>

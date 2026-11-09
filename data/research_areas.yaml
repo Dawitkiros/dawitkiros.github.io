@@ -1,0 +1,12 @@
+- id: federated
+  title: Federated learning
+  icon: network
+  description: Optimization under client heterogeneity and partial participation.
+- id: communication
+  title: Efficient communication
+  icon: layers
+  description: Compression, sparsification, and error feedback for distributed optimization.
+- id: privacy-medical
+  title: Privacy & medical AI
+  icon: shield
+  description: Partial model sharing and medical image segmentation.

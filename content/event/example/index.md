@@ -28,7 +28,7 @@ all_day: false
 publishDate: ""
 
 authors: []
-tags: Federated Learning
+tags: [Federated Learning]
 
 # Is this a featured talk? (true/false)
 

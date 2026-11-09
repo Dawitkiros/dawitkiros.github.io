@@ -1,0 +1,5 @@
+<article class="publication-row" data-topics="{{ delimit (.Params.research_areas | default (slice)) " " }}">
+  <span class="publication-year">{{ .Date.Format "2006" }}</span>
+  <div class="publication-info"><p class="publication-venue">{{ .Params.publication | markdownify }}</p><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p class="publication-authors">{{ range $i, $author := .Params.authors }}{{ if $i }}, {{ end }}{{ if eq $author "Dawit Kiros Redie" }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ end }}</p>
+  <div class="paper-links"><a href="{{ .RelPermalink }}">Details {{ partial "icon.html" "arrow-up-right" }}</a>{{ with .Params.url_pdf }}<a href="{{ . | relURL }}">Paper {{ partial "icon.html" "arrow-up-right" }}</a>{{ end }}{{ if ne .Params.show_citation false }}{{ with .Resources.GetMatch "cite.bib" }}<a href="{{ .RelPermalink }}" download>Cite ↓</a>{{ end }}{{ end }}{{ with .Params.url_code }}<a href="{{ . }}">Code {{ partial "icon.html" "arrow-up-right" }}</a>{{ end }}</div></div>
+</article>

@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="archive-page"><a class="back-link" href="{{ "/" | relURL }}">← Back to home</a><p class="eyebrow">{{ if eq .Section "publication" }}Research archive{{ else }}Explore{{ end }}</p><h1>{{ .Title }}<span class="heading-dot">.</span></h1><div class="article-body">{{ .Content }}</div>
+{{ if eq .Section "publication" }}
+  <p class="section-description">Federated learning, distributed optimization, and medical imaging.</p>
+  <div class="publication-filters" role="group" aria-label="Filter publications"><button type="button" class="is-active" data-filter="all" aria-pressed="true">All research</button>{{ range hugo.Data.research_areas }}<button type="button" data-filter="{{ .id }}" aria-pressed="false">{{ .title }}</button>{{ end }}</div>
+  <p class="filter-count" aria-live="polite">{{ len .RegularPages }} publications</p>
+  <div class="publication-list">{{ range .RegularPages.ByDate.Reverse }}{{ partial "publication-row.html" . }}{{ end }}</div>
+{{ else }}
+  {{ range .Pages.ByDate.Reverse }}{{ if eq .Section "publication" }}{{ partial "publication-row.html" . }}{{ else }}<article class="archive-row"><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}<a class="text-link" href="{{ .RelPermalink }}">Read more {{ partial "icon.html" "arrow-right" }}</a></article>{{ end }}{{ end }}
+{{ end }}
+</section>
+{{ end }}

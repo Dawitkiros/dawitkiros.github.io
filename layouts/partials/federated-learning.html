@@ -1,0 +1,45 @@
+{{ $drawing := hugo.Data.federated_learning }}
+{{ $clients := $drawing.clients }}
+<div class="fl-animation" id="federated-learning" data-phase="ready">
+  <svg class="fl-scene" viewBox="0 0 320 260" width="320" height="260" role="img" aria-labelledby="fl-title fl-description">
+    <title id="fl-title">Federated learning with partial participation</title>
+    <desc id="fl-description">Seven colored point clouds represent client model states around a white server. Three clients send updates each round. The server averages their colors and returns the mixture. A final broadcast gives all seven the same model color.</desc>
+    <defs>
+      <g id="fl-cloud-shape">
+        {{ range $drawing.cloud }}
+        <rect x="{{ .x }}" y="{{ .y }}" width="3.6" height="3.6" rx="0.85" opacity="{{ .opacity }}"/>
+        {{ end }}
+      </g>
+      <g id="fl-update-shape">
+        <rect x="-5.7" y="0.3" width="3.4" height="3.4" rx="0.8"/>
+        <rect x="-1.7" y="-4.7" width="3.4" height="3.4" rx="0.8"/>
+        <rect x="2.3" y="0.3" width="3.4" height="3.4" rx="0.8"/>
+      </g>
+      <g id="fl-server-shape">
+        {{ range $drawing.core }}
+        <rect class="fl-core-cell" x="{{ .x }}" y="{{ .y }}" width="5.4" height="5.4" rx="1"/>
+        {{ end }}
+      </g>
+    </defs>
+    <g class="fl-wires">
+      {{ range $index, $client := $clients }}<line data-fl-wire="{{ $index }}" x1="160" y1="130" x2="{{ .x }}" y2="{{ .y }}"/>{{ end }}
+    </g>
+    <g class="fl-packets">
+      {{ range $index, $client := $clients }}<g data-fl-packet="{{ $index }}" opacity="0"><use href="#fl-update-shape"/></g>{{ end }}
+    </g>
+    <g class="fl-clients">
+      {{ range $index, $client := $clients }}
+      <g data-fl-client="{{ $index }}" data-x="{{ .x }}" data-y="{{ .y }}" transform="translate({{ .x }},{{ .y }})">
+        <rect class="fl-halo" x="-26" y="-26" width="52" height="52" rx="10"/>
+        <g data-fl-model fill="var(--fl-color-{{ add $index 1 }})"><use href="#fl-cloud-shape" transform="rotate({{ .rotation }}) scale({{ .sx }},{{ .sy }})"/></g>
+      </g>
+      {{ end }}
+    </g>
+    <g data-fl-server transform="translate(160,130)" fill="#ffffff"><use href="#fl-server-shape"/></g>
+  </svg>
+  <button class="fl-control" type="button" aria-label="Play animation" hidden>
+    <svg data-fl-icon="play" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>
+    <svg data-fl-icon="pause" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+    <svg data-fl-icon="replay" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg>
+  </button>
+</div>

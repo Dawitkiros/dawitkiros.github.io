@@ -19,7 +19,16 @@ publication_types: ["paper-conference"]
 publication: "59th Asilomar Conference on Signals, Systems, and Computers"
 publication_short: ""
 
-abstract: Communication overhead and privacy risks remain significant challenges in federated learning (FL). We introduce Partial Model Sharing (ParMS), a novel framework that enhances both communication efficiency and data privacy in FL. ParMS partitions model parameters into blocks, enabling each client to securely share only a small encrypted subset of parameters in each communication round. The central server aggregates these partial updates without directly accessing any client's complete model, mitigating privacy leakage, including leakage from gradient inversion attacks. We formally establish ParMS as a valid compression operator and provide theoretical guarantees for its convergence under standard assumptions. Extensive experiments show that ParMS substantially reduces communication and computational costs while improving resilience to privacy attacks, offering a practical and scalable approach for privacy-preserving FL.
+abstract: >-
+  Communication overhead and privacy risks remain significant challenges in federated learning (FL).
+  We introduce Partial Model Sharing (ParMS), a novel framework that enhances both communication efficiency and data privacy in FL.
+  ParMS partitions model parameters into blocks, enabling each client to securely share only a small encrypted subset of parameters in each communication round.
+  The central server aggregates these partial updates without directly accessing any client's complete model, mitigating privacy leakage, including leakage from gradient inversion attacks.
+  We formally establish ParMS as a valid compression operator and provide theoretical guarantees for its convergence under standard assumptions.
+  Extensive experiments show that ParMS substantially reduces communication and computational costs while improving resilience to privacy attacks, offering a practical and scalable approach for privacy-preserving FL.
+abstract_source: "https://research.aalto.fi/en/publications/enhancing-efficiency-and-privacy-in-federated-learning-via-partia/"
+
+research_areas: [federated, communication, privacy-medical]
 
 tags:
   - Federated Learning

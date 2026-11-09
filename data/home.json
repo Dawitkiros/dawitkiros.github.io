@@ -1,0 +1,72 @@
+{
+  "experience": [
+    {
+      "title": "Visiting PhD Researcher",
+      "company": "CISPA",
+      "company_url": "https://cispa.de/",
+      "location": "Saarbrücken, Germany",
+      "date_start": "2026-08-01",
+      "date_end": "",
+      "description": "Beginning research on one-shot federated learning, with an initial focus on theoretical guarantees and model performance across distributed data."
+    },
+    {
+      "title": "PhD Researcher",
+      "company": "NTNU",
+      "company_url": "https://www.ntnu.no/",
+      "company_logo": "ntnu",
+      "location": "Trondheim, Norway",
+      "date_start": "2023-12-01",
+      "date_end": "",
+      "description": "* Design and analyze communication-efficient federated learning methods using block-wise sparsification, quantization, and error feedback.\n* Study client heterogeneity and partial participation in optimization and generalization, including personalized and privacy-preserving learning.\n* Develop reproducible Python/PyTorch research code and run controlled GPU/HPC experiments."
+    },
+    {
+      "title": "Data Scientist",
+      "company": "ReLU, in collaboration with Oslo University Hospital",
+      "company_url": "https://reluntnu.no/",
+      "company_logo": "relu_ntnu",
+      "location": "Trondheim, Norway",
+      "date_start": "2025-09-01",
+      "date_end": "2026-09-01",
+      "description": "* Developed an abdominal aortic aneurysm segmentation pipeline for CT images using TotalSegmentator, aorta seed points, and geometric and boundary constraints.\n* Developed a global controller for SO(3)-equivariant aorta tracking and contributed to dataset preparation, evaluation metrics, and reproducible ablation experiments."
+    },
+    {
+      "title": "Graduate Teaching Assistant",
+      "company": "NTNU",
+      "company_url": "https://www.ntnu.edu/",
+      "location": "Trondheim, Norway",
+      "date_start": "2023-12-01",
+      "date_end": "2025-09-01",
+      "description": "Supported Estimation, Detection and Classification and Digital Signal Processing.\n\nLed help sessions and individual guidance; supported assignments, grading, and examinations."
+    },
+    {
+      "title": "Data Engineer Intern",
+      "company": "Johnson Controls",
+      "company_url": "https://www.johnsoncontrols.com/",
+      "company_logo": "jci",
+      "location": "Pune, India",
+      "date_start": "2023-01-01",
+      "date_end": "2023-08-01",
+      "description": "* Reduced data processing time by 50% through ETL workflow optimization and migration of Spark jobs to PySpark.\n* Built a Spring Boot data-loss detection service to automate manual checks and implemented data synchronization between Snowflake and PostgreSQL.\n* Developed a predictive maintenance model using historical equipment data."
+    },
+    {
+      "title": "Teaching Assistant, Data Structures and Algorithms",
+      "company": "KIIT University",
+      "company_url": "https://kiit.ac.in/",
+      "company_logo": "kiit",
+      "location": "Bhubaneswar, India",
+      "date_start": "2022-09-01",
+      "date_end": "2023-01-01",
+      "description": "Supported lectures, labs, and grading; developed C++/Python practice material on arrays, trees, graphs, and complexity."
+    },
+    {
+      "title": "Research Intern in AI Applications",
+      "company": "KIIT University",
+      "company_url": "https://kiit.ac.in/",
+      "company_logo": "kiit",
+      "location": "Bhubaneswar, India",
+      "date_start": "2020-07-01",
+      "date_end": "2020-09-01",
+      "description": "Explored applications of artificial intelligence in power electronics; implemented small prototypes and literature reviews to evaluate feasibility."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{{ $author := site.GetPage "authors/admin" }}
+<aside class="profile-sidebar" aria-label="About Dawit">
+  <a class="portrait-link" href="{{ "/" | relURL }}" aria-label="Home">{{ with $author.Resources.GetMatch "avatar*" }}{{ $portrait := .Fill "440x480 Center" }}<img class="portrait" src="{{ $portrait.RelPermalink }}" width="220" height="240" alt="Dawit Kiros Redie" fetchpriority="high">{{ end }}</a>
+  <div class="profile-intro"><p class="eyebrow">Researcher & engineer</p><h2 class="profile-name">Dawit Kiros<br> Redie<span>.</span></h2><p class="profile-role">PhD Researcher, <a href="https://www.ntnu.edu/">NTNU</a></p><p class="profile-role">Visiting researcher, <a href="https://cispa.de/">CISPA</a></p><p class="location">{{ partial "icon.html" "pin" }} Trondheim, Norway</p></div>
+  <p class="profile-note">My research focuses on communication-efficient federated learning and distributed optimization.</p>
+  <div class="profile-links"><a href="{{ site.Params.scholar }}">Google Scholar {{ partial "icon.html" "arrow-up-right" }}</a><a href="{{ site.Params.github }}">GitHub {{ partial "icon.html" "arrow-up-right" }}</a><a href="{{ site.Params.linkedin }}">LinkedIn {{ partial "icon.html" "arrow-up-right" }}</a><a href="{{ site.Params.x }}">X / Twitter {{ partial "icon.html" "arrow-up-right" }}</a></div>
+  <a class="profile-email" href="mailto:{{ site.Params.email }}">{{ partial "icon.html" "mail" }} Get in touch</a>
+</aside>
